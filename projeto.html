@@ -1,31 +1,104 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Enterprise HelpDesk | Painel de Suporte TI</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Cabeçalho Executivo -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <i class="fa-solid fa-headset brand-icon"></i>
+                <div>
+                    <h1>HelpDesk Enterprise</h1>
+                    <p>Central de Monitoramento e Suporte Técnico</p>
+                </div>
+            </div>
+            <div class="user-profile">
+                <span class="status-badge-online"><i class="fa-solid fa-circle"></i> Sistema Ativo</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Container Principal do Dashboard -->
+    <main class="dashboard-container">
+
+        <!-- Barra de Estatísticas / Métricas -->
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-icon blue"><i class="fa-solid fa-ticket"></i></div>
+                <div class="metric-info">
+                    <h3>Total de Chamados</h3>
+                    <span id="contador-total">0</span>
+                </div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                <div class="metric-info">
+                    <h3>Alta Prioridade</h3>
+                    <span id="contador-urgentes">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade de Conteúdo (Formulário + Lista) -->
+        <div class="content-grid">
+            
+            <!-- Painel de Abertura -->
+            <div class="panel-card">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-plus-circle"></i> Abrir Novo Chamado</h2>
+                </div>
+                <form id="form-chamado">
+                    <div class="input-group">
+                        <label for="titulo">Título do Ocorrido</label>
+                        <input type="text" id="titulo" placeholder="Ex: Falha de conexão VPN" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="prioridade">Nível de Prioridade</label>
+                        <select id="prioridade" required>
+                            <option value="baixa">Baixa Prioridade</option>
+                            <option value="media" selected>Média Prioridade</option>
+                            <option value="alta">Alta / Urgente</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="descricao">Descrição Completa</label>
+                        <textarea id="descricao" rows="4" placeholder="Detalhe os sintomas, código de erro ou setor..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fa-solid fa-paper-plane"></i> Registrar Chamado
+                    </button>
+                </form>
+            </div>
+
+            <!-- Painel de Acompanhamento (Lista) -->
+            <div class="panel-card">
+                <div class="panel-header">
+                    <h2><i class="fa-solid fa-list-check"></i> Fila de Atendimento</h2>
+                </div>
+                
+                <ul id="lista-chamados" class="ticket-list">
+                    <!-- Estado Vazio Inicial -->
+                    <div id="empty-state" class="empty-state">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <p>Nenhum chamado registrado no momento.</p>
+                    </div>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
     <script src="script.js"></script>
-
-    <body>
-    <h1>Sistema de Chamados de TI</h1>
-
-    <form id="form-chamado">
-        <label for="titulo">Título do Chamado:</label><br>
-        <input type="text" id="titulo" placeholder="Ex: Computador não liga" required><br><br>
-
-        <label for="descricao">Descrição:</label><br>
-        <textarea id="descricao" placeholder="Descreva o problema..." required></textarea><br><br>
-
-        <button type="submit">Cadastrar Chamado</button>
-    </form>
-
-    <h2>Lista de Chamados</h2>
-    <ul id="lista-chamados">
-        <!-- Os chamados vão aparecer aqui dinamicamente via JavaScript -->
-    </ul>
-
-    <script src="script.js"></script>
-
 </body>
 </html>
