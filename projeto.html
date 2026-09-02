@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +5,27 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script src="script.js"></script>
+
+    <body>
+    <h1>Sistema de Chamados de TI</h1>
+
+    <form id="form-chamado">
+        <label for="titulo">Título do Chamado:</label><br>
+        <input type="text" id="titulo" placeholder="Ex: Computador não liga" required><br><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" placeholder="Descreva o problema..." required></textarea><br><br>
+
+        <button type="submit">Cadastrar Chamado</button>
+    </form>
+
+    <h2>Lista de Chamados</h2>
+    <ul id="lista-chamados">
+        <!-- Os chamados vão aparecer aqui dinamicamente via JavaScript -->
+    </ul>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
